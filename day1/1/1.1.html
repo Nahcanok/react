@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="aaa"></div>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <script type="text/babel">
+        let data = {
+            // name :'hello world'
+            //v-text
+
+
+            // teacher:[{
+            //     name:'yong',
+            //     skill:['ps','css']
+            // },{
+            //     name:'lin',
+            //     skill:['js']
+            // },{
+            //     name:'tian',
+            //     skill:['ts']
+            // }],
+            // items:[
+            //     <li key="1">1</li>,
+            //     <li key="2">2</li>,
+            //     <li key="3">3</li>,
+            // ],
+            // mapTeacher({
+            //     teacher
+            // }){
+            //     let arr=[]
+            //     for (let i = 0; i < teacher.length; i++) {
+            //         arr.push(
+            //             <option value={teacher[i].name} key={i}>{teacher[i].name}</option>
+            //         )
+            //     }
+            //     return arr
+            // }
+            //v-for
+
+
+            bool:!0,
+            num:2
+        }
+        const Vif=({num,data})=>{
+            console.log(data);
+            switch (num) {
+                case 1:
+                    return '1'
+                case 2:
+                    return '2'
+                case 3:
+                    return '3'
+                default:
+                    return '其他'
+            }
+        }
+        ReactDOM.render(
+            // <div>{data.name}</div>,
+            // document.querySelector("#aaa")
+            //v-text
+
+            // <div>
+            //     <ul>{data.items}</ul>
+            //     <select>
+            //         {data.teacher.map((item,index)=>{
+            //             return <option value={item.name} key={index}>{item.name}</option>
+            //         })}    
+            //     </select>
+            //     <select>
+            //         {(({
+            //             teacher
+            //         })=>{
+            //             let arr=[]
+            //             for(let i = 0;i<teacher.length;i++){
+            //                 arr.push(
+            //                     <option value={teacher[i].name} key={i}>{teacher[i].name}</option>
+            //                 )
+            //             }
+            //             return arr
+            //         })(data)}
+            //     </select>
+            //     <select>
+            //         {data.mapTeacher(data)}
+            //     </select>    
+            // </div>,
+            // document.querySelector("#aaa")
+            //v-for
+
+            <div>
+                <div>{data.bool?"真":"假"}</div>
+                <div>{data.bool?<p>真</p>:<p>假</p>}</div>
+                <div>{(({bool})=>{
+                            if (bool) {
+                                return '真的'
+                            }else{
+                                return '假的'
+                            }
+                })(data)}</div>
+                <div>{Vif(data)}</div>
+                <Vif data={data}></Vif>    
+            </div>,
+            document.querySelector('#aaa')
+            )
+    </script>
+</body>
+
+</html>
